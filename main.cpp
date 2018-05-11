@@ -177,7 +177,7 @@ int main(int argc, char** argv)
     {
         if (strListFile.empty())
         {
-            cerr << "No --listfile specified, might be needed for searching in some games" << endl;
+            cout << "No --listfile specified, might be needed for searching in some games" << endl;
         }
 
         cout << endl;
@@ -186,7 +186,7 @@ int main(int argc, char** argv)
         CASC_FIND_DATA findData;
         HANDLE handle = CascFindFirstFile(hStorage, strSearchPattern.c_str(), &findData,
                                           strListFile.empty() ? NULL : strListFile.c_str());
-    
+
         if (handle)
         {
             cout << endl;
