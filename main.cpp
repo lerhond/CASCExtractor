@@ -177,15 +177,15 @@ int main(int argc, char** argv)
     {
         if (strListFile.empty())
         {
-            cerr << "No listfile specified, use the --listfile option" << endl;
-            return -1;
+            cerr << "No --listfile specified, might be needed for searching in some games" << endl;
         }
 
         cout << endl;
         cout << "Searching for '" << strSearchPattern << "'..." << endl;
 
         CASC_FIND_DATA findData;
-        HANDLE handle = CascFindFirstFile(hStorage, strSearchPattern.c_str(), &findData, strListFile.c_str());
+        HANDLE handle = CascFindFirstFile(hStorage, strSearchPattern.c_str(), &findData,
+                                          strListFile.empty() ? NULL : strListFile.c_str());
     
         if (handle)
         {
